@@ -17,11 +17,19 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '2.0.4'
 }
 
-mainClassName = "AppKt"
+dependencies {
+    compile 'com.sparkjava:spark-core:2.7.2'
+}
 
 group 'com.github.lkq'
 version '0.1.0-SNAPSHOT'
 
+mainClassName = "AppKt"
+
+shadowJar {
+    classifier = null
+    version = getVersion()
+}
 
 repositories {
     mavenCentral()
