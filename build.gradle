@@ -19,6 +19,7 @@ plugins {
 
 dependencies {
     compile 'com.sparkjava:spark-core:2.7.2'
+    compile 'ch.qos.logback:logback-classic:1.1.7'
 }
 
 group 'com.github.lkq'

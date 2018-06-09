@@ -4,9 +4,11 @@ import spark.Response
 import spark.Spark
 
 fun main(args: Array<String>) {
-    println("server started")
-    Spark.port(2000)
+
+    Spark.port(2001)
     Spark.get("/", { request: Request, response: Response ->
-        "Hello World!"
+        val name = request.queryParams("name")
+        "Hello $name"
     })
+
 }
