@@ -6,6 +6,7 @@ import spark.Spark
 fun main(args: Array<String>) {
 
     Spark.port(2001)
+    Spark.staticFileLocation("/ui")
     Spark.get("/", { request: Request, response: Response ->
         val name = request.queryParams("name")
         "Hello $name"

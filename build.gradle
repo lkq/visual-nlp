@@ -40,9 +40,28 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }
 
+def uiDir = "$projectDir/ui"
+
 sourceSets {
     main.kotlin.srcDirs += 'src/main/kotlin'
-    main.java.srcDirs += 'src/main/java'
+    main.resources.srcDirs += "$uiDir/dist"
+}
+
+processResources {
+    dependsOn 'ngBuild'
+}
+
+task ngBuild(type: Exec) {
+    dependsOn 'npmInstall'
+    workingDir "$uiDir"
+    inputs.dir "$uiDir"
+    commandLine 'ng', 'build'
+}
+
+task npmInstall(type: Exec) {
+    workingDir "$uiDir"
+    inputs.dir "$uiDir"
+    commandLine 'npm', 'install'
 }
 
 compileKotlin {
