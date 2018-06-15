@@ -25,7 +25,7 @@ dependencies {
 group 'com.github.lkq'
 version '0.1.0-SNAPSHOT'
 
-mainClassName = "AppKt"
+mainClassName = "com.github.lkq.visualnlp.AppKt"
 
 shadowJar {
     classifier = null
@@ -38,6 +38,7 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile "org.apache.opennlp:opennlp-tools:1.8.4"
 }
 
 def uiDir = "$projectDir/ui"
