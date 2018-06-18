@@ -1,7 +1,11 @@
 buildscript {
     ext.kotlin_version = '1.2.41'
+//    repositories.ext.altRepo = { repositories.maven {
+//        url "http://centos:8081/repository/maven-public"
+//    } }
 
     repositories {
+//        altRepo()
         mavenCentral()
         jcenter()
     }
@@ -11,15 +15,11 @@ buildscript {
     }
 }
 
+
 plugins {
     id "application"
     id "org.jetbrains.kotlin.jvm" version "1.2.41"
     id 'com.github.johnrengelman.shadow' version '2.0.4'
-}
-
-dependencies {
-    compile 'com.sparkjava:spark-core:2.7.2'
-    compile 'ch.qos.logback:logback-classic:1.1.7'
 }
 
 group 'com.github.lkq'
@@ -38,7 +38,19 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compile 'com.sparkjava:spark-core:2.7.2'
     compile "org.apache.opennlp:opennlp-tools:1.8.4"
+    compile "org.apache.commons:commons-csv:1.5"
+
+    compile "io.github.microutils:kotlin-logging:1.5.4"
+    compile "ch.qos.logback:logback-classic:1.2.3"
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.1.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.1.0'
+}
+
+test {
+    useJUnitPlatform()
 }
 
 def uiDir = "$projectDir/ui"
@@ -46,6 +58,8 @@ def uiDir = "$projectDir/ui"
 sourceSets {
     main.kotlin.srcDirs += 'src/main/kotlin'
     main.resources.srcDirs += "$uiDir/dist"
+    test.kotlin.srcDirs += 'src/main/test/kotlin'
+    test.resources.srcDirs += 'src/main/test/resources'
 }
 
 processResources {
