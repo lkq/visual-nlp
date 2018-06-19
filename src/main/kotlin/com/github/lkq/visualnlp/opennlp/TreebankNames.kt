@@ -13,7 +13,7 @@ class TreebankNames(mappingFile: File) {
 
     init {
         logger.info("loading treebank name mapping from {}", mappingFile)
-        val records = CSVFormat.EXCEL .parse(FileReader(mappingFile))
+        val records = CSVFormat.EXCEL.parse(FileReader(mappingFile))
         val mappings = HashMap<String, String>()
         for (record in records) {
             mappings[record.get(0)] = record.get(1)
