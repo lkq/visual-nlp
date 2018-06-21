@@ -2,6 +2,7 @@ package com.github.lkq.visualnlp.opennlp
 
 import opennlp.tools.tokenize.TokenizerME
 import opennlp.tools.tokenize.TokenizerModel
+import opennlp.tools.util.Span
 
 class Tokenizer(modelFile: String) {
 
@@ -11,9 +12,15 @@ class Tokenizer(modelFile: String) {
         val modelStream = this.javaClass.getResourceAsStream(modelFile)
         val tokenizerModel = TokenizerModel(modelStream)
         this.tokenizer = TokenizerME(tokenizerModel)
+
+        modelStream.close()
     }
 
-    fun tokens(text: String): Array<String> {
+    fun tokenize(text: String): Array<String> {
         return tokenizer.tokenize(text)
+    }
+
+    fun tokenizePos(text: String): Array<Span> {
+        return tokenizer.tokenizePos(text)
     }
 }

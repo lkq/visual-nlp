@@ -1,8 +1,5 @@
 package com.github.lkq.visualnlp
-import com.github.lkq.visualnlp.opennlp.PartOfSpeechTagger
-import com.github.lkq.visualnlp.opennlp.SentenceDetector
-import com.github.lkq.visualnlp.opennlp.Tokenizer
-import com.github.lkq.visualnlp.opennlp.TreebankNames
+import com.github.lkq.visualnlp.opennlp.*
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import spark.Request
@@ -15,12 +12,21 @@ fun main(args: Array<String>) {
     val tagger = PartOfSpeechTagger("/models/en-pos-maxent.bin")
     val tokenizer = Tokenizer("/models/en-token.bin")
     val sentDetector = SentenceDetector("/models/en-sent.bin")
+    val parser = Parser("/models/en-parser-chunking.bin", tokenizer)
 
     port(2001)
     staticFileLocation("/ui")
     get("/hello", { request: Request, response: Response ->
         val name = request.queryParams("name")
         "Hello $name"
+    })
+
+    get("/parse", {request: Request, response: Response ->
+        val text = request.queryParams("text")
+        val parse = parser.parse(text)
+        val result = StringBuffer()
+        parse.show(result)
+        result.toString()
     })
 
     get("/pos", { request: Request, response: Response ->
@@ -30,7 +36,7 @@ fun main(args: Array<String>) {
 
         val sentences = sentDetector.getSentences(text)
         for (sentence in sentences) {
-            val tokens = tokenizer.tokens(sentence)
+            val tokens = tokenizer.tokenize(sentence)
             val tags = tagger.tags(tokens)
 
             val json = JsonArray()

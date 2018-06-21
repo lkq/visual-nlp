@@ -12,6 +12,8 @@ class SentenceDetector(modelFile: String) {
         val modelStream = this.javaClass.getResourceAsStream(modelFile)
         val model = SentenceModel(modelStream)
         sentenceDetector = SentenceDetectorME(model)
+
+        modelStream.close()
     }
 
     fun getSentences(text: String): Array<String> {

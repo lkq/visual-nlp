@@ -12,6 +12,8 @@ class PartOfSpeechTagger(modelFile: String) {
         val modelStream = this.javaClass.getResourceAsStream(modelFile)
         val posModel = POSModel(modelStream)
         this.tagger = POSTaggerME(posModel)
+
+        modelStream.close()
     }
 
     fun tags(tokens: Array<String>): Array<String> {
