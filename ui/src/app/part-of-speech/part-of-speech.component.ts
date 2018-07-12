@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PosToken } from './pos-token';
 
 @Component({
   selector: 'app-part-of-speech',
@@ -7,9 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PartOfSpeechComponent implements OnInit {
 
-  token: String = 'kingson';
-  tag: String = 'NN';
-  tagName: String = 'Noun';
+  posTokens: Array<PosToken> = [{token: 'kingson', tag: 'NN', tagName: 'Noun'}];
 
   constructor() { }
 

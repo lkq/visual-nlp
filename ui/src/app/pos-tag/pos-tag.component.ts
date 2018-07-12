@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { PosToken } from '../part-of-speech/pos-token';
 
 @Component({
   selector: 'app-pos-tag',
@@ -8,11 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class PosTagComponent implements OnInit {
 
   @Input()
-  token: String = '';
-  @Input()
-  tag: String = '';
-  @Input()
-  tagName: String = '';
+  pos: PosToken;
   constructor() { }
 
   ngOnInit() {
