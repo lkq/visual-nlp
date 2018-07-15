@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-visual-nlp',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VisualNLPComponent implements OnInit {
 
+  @Input()
+  nlpInput: String = '';
   constructor() { }
 
   ngOnInit() {
