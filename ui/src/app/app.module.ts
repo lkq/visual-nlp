@@ -7,6 +7,8 @@ import { PosTagComponent } from './pos-tag/pos-tag.component';
 import { NLPInputComponent } from './nlp-input/nlp-input.component';
 import { VisualNLPComponent } from './visual-nlp/visual-nlp.component';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +18,8 @@ import { VisualNLPComponent } from './visual-nlp/visual-nlp.component';
     VisualNLPComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

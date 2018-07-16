@@ -7,11 +7,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class VisualNLPComponent implements OnInit {
 
-  @Input()
-  nlpInput: String = '';
+  nlpInputText: String = '';
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSubmitTextToProcess(text) {
+    console.log('receiving text to process: ' + text);
+    this.nlpInputText = text;
   }
 
 }

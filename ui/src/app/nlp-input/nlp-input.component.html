@@ -1,6 +1,6 @@
 <div class="nlp-input">
-  <textarea class="nlp-input-box" cols="60" rows="5" [value]="content"></textarea>
+  <textarea class="nlp-input-box" cols="60" rows="5" [(ngModel)]="content"></textarea>
   <div>
-    <button>Process</button>
+    <button (click)="onProcessButtonClicked()">Process</button>
   </div>
 </div>

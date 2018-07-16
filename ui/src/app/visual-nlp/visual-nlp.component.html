@@ -1,5 +1,6 @@
 <div>
   <app-nlp-input
-  [content]="nlpInput"></app-nlp-input>
+  [content]="nlpInputText"
+  (submit)="onSubmitTextToProcess($event)"></app-nlp-input>
   <app-part-of-speech></app-part-of-speech>
 </div>
