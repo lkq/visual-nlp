@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PosToken } from '../part-of-speech/pos-token';
+import { PosToken } from '../pos-sentence/pos-token';
 
 @Component({
   selector: 'app-pos-tag',

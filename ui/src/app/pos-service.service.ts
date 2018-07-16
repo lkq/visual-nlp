@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PosToken } from './part-of-speech/pos-token';
+import { PosToken } from './pos-sentence/pos-token';
 
 const posData = require('./mock-pos.js');
 
