@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { VisualNLPComponent } from './visual-nlp.component';
+import { NLPInputComponent } from '../nlp-input/nlp-input.component';
+import { PartOfSpeechComponent } from '../part-of-speech/part-of-speech.component';
+import { FormsModule } from '../../../node_modules/@angular/forms';
+import { PosTagComponent } from '../pos-tag/pos-tag.component';
 
 describe('VisualNLPComponent', () => {
   let component: VisualNLPComponent;
@@ -8,7 +12,8 @@ describe('VisualNLPComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VisualNLPComponent ]
+      declarations: [ VisualNLPComponent, NLPInputComponent, PartOfSpeechComponent, PosTagComponent ],
+      imports: [FormsModule]
     })
     .compileComponents();
   }));

@@ -16,10 +16,12 @@ describe('PosTagComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PosTagComponent);
     component = fixture.componentInstance;
+    component.pos = {token: 'kingson', tag: 'NN', tagName: 'Noun'};
     fixture.detectChanges();
   });
 
   it('should create', () => {
+    console.log('component ' + component);
     expect(component).toBeTruthy();
   });
 });

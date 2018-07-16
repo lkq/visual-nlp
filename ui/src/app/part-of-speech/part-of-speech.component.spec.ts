@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PartOfSpeechComponent } from './part-of-speech.component';
+import { PosTagComponent } from '../pos-tag/pos-tag.component';
 
 describe('PartOfSpeechComponent', () => {
   let component: PartOfSpeechComponent;
@@ -8,7 +9,7 @@ describe('PartOfSpeechComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PartOfSpeechComponent ]
+      declarations: [ PartOfSpeechComponent, PosTagComponent ]
     })
     .compileComponents();
   }));

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NLPInputComponent } from './nlpinput.component';
+import { NLPInputComponent } from './nlp-input.component';
+import { FormsModule } from '../../../node_modules/@angular/forms';
 
 describe('NLPInputComponent', () => {
   let component: NLPInputComponent;
@@ -8,7 +9,8 @@ describe('NLPInputComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NLPInputComponent ]
+      declarations: [ NLPInputComponent ],
+      imports: [FormsModule]
     })
     .compileComponents();
   }));
