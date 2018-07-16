@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PosSentenceComponent } from './pos-sentence.component';
-import { PosTagComponent } from '../pos-tag/pos-tag.component';
+import { PosTagComponent } from '../pos-token/pos-token.component';
 
 describe('PartOfSpeechComponent', () => {
   let component: PosSentenceComponent;

@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PosTagComponent } from './pos-tag.component';
+import { PosTagComponent } from './pos-token.component';
 
 describe('PosTagComponent', () => {
   let component: PosTagComponent;

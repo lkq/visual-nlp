@@ -4,7 +4,7 @@ import { VisualNLPComponent } from './visual-nlp.component';
 import { NLPInputComponent } from '../nlp-input/nlp-input.component';
 import { PosSentenceComponent } from '../pos-sentence/pos-sentence.component';
 import { FormsModule } from '@angular/forms';
-import { PosTagComponent } from '../pos-tag/pos-tag.component';
+import { PosTagComponent } from '../pos-token/pos-token.component';
 
 describe('VisualNLPComponent', () => {
   let component: VisualNLPComponent;

@@ -2,9 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { PosToken } from '../pos-sentence/pos-token';
 
 @Component({
-  selector: 'app-pos-tag',
-  templateUrl: './pos-tag.component.html',
-  styleUrls: ['./pos-tag.component.css']
+  selector: 'app-pos-token',
+  templateUrl: './pos-token.component.html',
+  styleUrls: ['./pos-token.component.css']
 })
 export class PosTagComponent implements OnInit {
 
