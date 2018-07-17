@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import { PosToken } from './pos-sentence/pos-token';
+import { PosToken } from '../pos-sentence/pos-token';
 
 const posData = require('./mock-pos.js');
 
 @Injectable({
   providedIn: 'root'
 })
-export class PosServiceService {
+export class PosService {
 
   constructor() { }
 
-  processPartOfSpeech(text: String): Array<PosToken> {
+  public processPartOfSpeech(text: String): Array<PosToken> {
     const mockData = this.getMockPartOfSpeech();
     return mockData.partOfSpeech;
     // return posData;
