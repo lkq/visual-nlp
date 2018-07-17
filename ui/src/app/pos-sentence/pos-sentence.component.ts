@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PosToken } from './pos-token';
 
 @Component({
@@ -9,7 +9,8 @@ import { PosToken } from './pos-token';
 
 export class PosSentenceComponent implements OnInit {
 
-  tokens: Array<PosToken> = [{token: 'kingson', tag: 'NN', tagName: 'Noun'}];
+  @Input()
+  tokens: Array<PosToken> = [];
 
   constructor() { }
 
