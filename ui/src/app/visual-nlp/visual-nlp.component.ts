@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PosToken } from '../services/nlp-results';
-import { PosService } from '../services/pos.service';
+import { PosToken, NlpResults } from '../services/nlp-results';
+import { NlpService } from '../services/nlp.service';
 
 @Component({
   selector: 'app-visual-nlp',
@@ -10,8 +10,8 @@ import { PosService } from '../services/pos.service';
 export class VisualNLPComponent implements OnInit {
 
   nlpInputText: String = '';
-  posTokens: Array<PosToken> = [];
-  posService = new PosService();
+  nlpService = new NlpService();
+  nlpResults: NlpResults = new NlpResults();
 
   constructor() { }
 
@@ -21,8 +21,7 @@ export class VisualNLPComponent implements OnInit {
   onSubmitTextToProcess(text) {
     console.log('receiving text to process: ' + text);
     this.nlpInputText = text;
-    this.posTokens = this.posService.processPartOfSpeech(this.nlpInputText);
-    // this.posTokens = [{token: 'kingson', tag: 'NN', tagName: 'Noun'}];
+    this.nlpResults = this.nlpService.processText(this.nlpInputText);
   }
 
 }

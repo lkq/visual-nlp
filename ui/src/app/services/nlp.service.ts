@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
-import { PosToken } from './nlp-results';
+import { PosToken, NlpResults } from './nlp-results';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PosService {
+export class NlpService {
 
   constructor() { }
 
-  public processPartOfSpeech(text: String): Array<PosToken> {
-    const mockData = this.getMockPartOfSpeech();
-    return mockData.partOfSpeech;
+  public processText(text: String): NlpResults {
+    const mockData = this.getNlpResultsMock();
+    return mockData;
   }
 
-  getMockPartOfSpeech() {
+  getNlpResultsMock() {
     return {
       partOfSpeech: [
         {

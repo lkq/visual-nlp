@@ -3,5 +3,5 @@
   [content]="nlpInputText"
   (submit)="onSubmitTextToProcess($event)"></app-nlp-input>
   <app-pos-sentence
-  [tokens]="posTokens"></app-pos-sentence>
+  [tokens]="nlpResults.partOfSpeech"></app-pos-sentence>
 </div>

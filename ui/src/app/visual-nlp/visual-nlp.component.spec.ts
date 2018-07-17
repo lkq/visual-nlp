@@ -29,7 +29,7 @@ describe('VisualNLPComponent', () => {
   });
   it('should process textwhen submit', () => {
     component.onSubmitTextToProcess('');
-    expect(component.posTokens).toBeTruthy();
-    expect(component.posTokens.length).toEqual(8);
+    expect(component.nlpResults.partOfSpeech).toBeTruthy();
+    expect(component.nlpResults.partOfSpeech.length).toEqual(8);
   });
 });
