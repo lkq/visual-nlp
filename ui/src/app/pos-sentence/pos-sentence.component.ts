@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PosToken } from './pos-token';
+import { PosToken } from '../services/nlp-results';
 
 @Component({
   selector: 'app-pos-sentence',

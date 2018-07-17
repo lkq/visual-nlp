@@ -27,4 +27,9 @@ describe('VisualNLPComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should process textwhen submit', () => {
+    component.onSubmitTextToProcess('');
+    expect(component.posTokens).toBeTruthy();
+    expect(component.posTokens.length).toEqual(8);
+  });
 });

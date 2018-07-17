@@ -1,5 +1,6 @@
-var data = {
-  text: 'this is kingson nice to meet you.',
+import { NlpResults } from './nlp-results';
+
+export const data: NlpResults = {
   partOfSpeech: [
     {
       token: 'this',

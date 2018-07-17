@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PosToken } from '../pos-sentence/pos-token';
-
-const posData = require('./mock-pos.js');
+import { PosToken } from './nlp-results';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +11,10 @@ export class PosService {
   public processPartOfSpeech(text: String): Array<PosToken> {
     const mockData = this.getMockPartOfSpeech();
     return mockData.partOfSpeech;
-    // return posData;
   }
 
   getMockPartOfSpeech() {
     return {
-      text: 'this is kingson nice to meet you.',
       partOfSpeech: [
         {
           token: 'this',

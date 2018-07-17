@@ -7,3 +7,9 @@ export class PosToken {
 
   constructor() { }
 }
+
+export class NlpResults {
+  partOfSpeech: PosToken[];
+
+  constructor() {}
+}
