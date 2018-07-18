@@ -1,4 +1,5 @@
-<div>
-  <label *ngFor="let token of tokens"><app-pos-token [pos]='token'></app-pos-token></label>
-</div>
-
+<ng-container>
+  <td class="pos-token" *ngFor="let token of tokens">
+    <app-pos-token [pos]='token'></app-pos-token>
+  </td>
+</ng-container>
