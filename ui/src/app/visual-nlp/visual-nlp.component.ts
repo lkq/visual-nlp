@@ -10,10 +10,12 @@ import { NlpService } from '../services/nlp.service';
 export class VisualNLPComponent implements OnInit {
 
   nlpInputText: String = '';
-  nlpService = new NlpService();
+  nlpService: NlpService;
   nlpResults: NlpResults = new NlpResults();
 
-  constructor() { }
+  constructor(nlpService: NlpService) {
+    this.nlpService = nlpService;
+   }
 
   ngOnInit() {
   }

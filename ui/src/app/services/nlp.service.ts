@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { PosToken, NlpResults } from './nlp-results';
+import { Http, Response } from '@angular/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,9 +9,13 @@ export class NlpService {
 
   constructor() { }
 
-  public processText(text: String): NlpResults {
+  processText(text: String): NlpResults {
     const mockData = this.getNlpResultsMock();
     return mockData;
+  }
+
+  sendText(text: String) {
+
   }
 
   getNlpResultsMock() {

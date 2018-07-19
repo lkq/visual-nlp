@@ -8,6 +8,7 @@ import { NLPInputComponent } from './nlp-input/nlp-input.component';
 import { VisualNLPComponent } from './visual-nlp/visual-nlp.component';
 
 import { FormsModule } from '@angular/forms';
+import { NlpService } from './services/nlp.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [NlpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
