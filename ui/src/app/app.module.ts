@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { PosSentenceComponent } from './pos-sentence/pos-sentence.component';
@@ -7,7 +9,6 @@ import { PosTagComponent } from './pos-token/pos-token.component';
 import { NLPInputComponent } from './nlp-input/nlp-input.component';
 import { VisualNLPComponent } from './visual-nlp/visual-nlp.component';
 
-import { FormsModule } from '@angular/forms';
 import { NlpService } from './services/nlp.service';
 
 @NgModule({
@@ -20,7 +21,8 @@ import { NlpService } from './services/nlp.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [NlpService],
   bootstrap: [AppComponent]

@@ -21,6 +21,14 @@ fun main(args: Array<String>) {
         "Hello $name"
     })
 
+    post("/api/nlp", {request: Request, response: Response ->
+        val text = request.body()
+        val parse = parser.parse(text)
+        val result = StringBuffer()
+        parse.show(result)
+        result.toString()
+    })
+
     get("/parse", {request: Request, response: Response ->
         val text = request.queryParams("text")
         val parse = parser.parse(text)

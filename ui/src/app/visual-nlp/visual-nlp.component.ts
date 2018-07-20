@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { PosToken, NlpResults } from '../services/nlp-results';
+import { Component, OnInit } from '@angular/core';
+import { NlpResults } from '../services/nlp-results';
 import { NlpService } from '../services/nlp.service';
+import { tap, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-visual-nlp',
@@ -15,7 +17,7 @@ export class VisualNLPComponent implements OnInit {
 
   constructor(nlpService: NlpService) {
     this.nlpService = nlpService;
-   }
+  }
 
   ngOnInit() {
   }
@@ -24,6 +26,8 @@ export class VisualNLPComponent implements OnInit {
     console.log('receiving text to process: ' + text);
     this.nlpInputText = text;
     this.nlpResults = this.nlpService.processText(this.nlpInputText);
+    const observer = this.nlpService.requestNlpResults(text)
+      .subscribe(value => console.log('response: ' + value));
   }
 
 }

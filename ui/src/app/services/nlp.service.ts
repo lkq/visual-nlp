@@ -1,21 +1,32 @@
 import { Injectable } from '@angular/core';
-import { PosToken, NlpResults } from './nlp-results';
-import { Http, Response } from '@angular/http';
+import { NlpResults } from './nlp-results';
+import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NlpService {
 
-  constructor() { }
+  http: HttpClient;
+  constructor(http: HttpClient) {
+    this.http = http;
+  }
 
   processText(text: String): NlpResults {
     const mockData = this.getNlpResultsMock();
     return mockData;
   }
 
-  sendText(text: String) {
-
+  requestNlpResults(text: String): Observable<String> {
+    return this.http.post<String>('api/nlp', text)
+    .pipe(
+      catchError(error => {
+        console.log('nlp request failed: ' + error);
+        return of('');
+      })
+    );
   }
 
   getNlpResultsMock() {
