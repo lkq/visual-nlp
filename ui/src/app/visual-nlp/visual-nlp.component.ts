@@ -23,11 +23,13 @@ export class VisualNLPComponent implements OnInit {
   }
 
   onSubmitTextToProcess(text) {
-    console.log('receiving text to process: ' + text);
+    console.log('nlp processing: ' + text);
     this.nlpInputText = text;
-    this.nlpResults = this.nlpService.processText(this.nlpInputText);
     const observer = this.nlpService.requestNlpResults(text)
-      .subscribe(value => console.log('response: ' + value));
+      .subscribe(nlpResult => {
+        console.log('nlp process results:' + JSON.stringify(nlpResult));
+        this.nlpResults = nlpResult;
+      });
   }
 
 }

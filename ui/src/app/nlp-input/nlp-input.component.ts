@@ -8,7 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class NLPInputComponent implements OnInit {
 
   @Input()
-  content: String = '';
+  content = '';
 
   @Output()
   submit: EventEmitter<String> = new EventEmitter<String>();

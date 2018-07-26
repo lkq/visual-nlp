@@ -1,9 +1,9 @@
 
 export class PosToken {
 
-  token: String;
-  tag: String;
-  tagName: String;
+  token: string;
+  tag: string;
+  tagName: string;
 
   constructor() { }
 }

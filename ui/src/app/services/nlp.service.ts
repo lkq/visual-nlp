@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NlpResults } from './nlp-results';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -10,23 +10,25 @@ import { catchError } from 'rxjs/operators';
 export class NlpService {
 
   http: HttpClient;
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'my-auth-token'
+    })
+  };
+
   constructor(http: HttpClient) {
     this.http = http;
   }
 
-  processText(text: String): NlpResults {
+  processText(text: string): NlpResults {
     const mockData = this.getNlpResultsMock();
     return mockData;
   }
 
-  requestNlpResults(text: String): Observable<String> {
-    return this.http.post<String>('api/nlp', text)
-    .pipe(
-      catchError(error => {
-        console.log('nlp request failed: ' + error);
-        return of('');
-      })
-    );
+  requestNlpResults(text: string): Observable<NlpResults> {
+    return this.http.post<NlpResults>('api/nlp', text, this.httpOptions);
   }
 
   getNlpResultsMock() {
